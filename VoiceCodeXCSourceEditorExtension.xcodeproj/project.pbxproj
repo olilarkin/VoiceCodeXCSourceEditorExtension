@@ -10,7 +10,35 @@
 		4FAA63271ED4F7DD00BF02C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA63261ED4F7DD00BF02C3 /* AppDelegate.swift */; };
 		4FAA63291ED4F7DD00BF02C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAA63281ED4F7DD00BF02C3 /* Assets.xcassets */; };
 		4FAA632C1ED4F7DD00BF02C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAA632A1ED4F7DD00BF02C3 /* MainMenu.xib */; };
+		4FAA633A1ED4F7FB00BF02C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */; };
+		4FAA633F1ED4F7FB00BF02C3 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */; };
+		4FAA63411ED4F7FB00BF02C3 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */; };
+		4FAA63451ED4F7FB00BF02C3 /* VoiceCode.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FAA63431ED4F7FB00BF02C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FAA63361ED4F7FB00BF02C3;
+			remoteInfo = VoiceCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4FAA63451ED4F7FB00BF02C3 /* VoiceCode.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceCodeXCSourceEditorExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -18,6 +46,12 @@
 		4FAA63281ED4F7DD00BF02C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FAA632B1ED4F7DD00BF02C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4FAA632D1ED4F7DD00BF02C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VoiceCode.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4FAA633D1ED4F7FB00BF02C3 /* VoiceCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceCode.entitlements; sourceTree = "<group>"; };
+		4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		4FAA63421ED4F7FB00BF02C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +62,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FAA63341ED4F7FB00BF02C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FAA633A1ED4F7FB00BF02C3 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -35,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				4FAA63251ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */,
+				4FAA633B1ED4F7FB00BF02C3 /* VoiceCode */,
+				4FAA63381ED4F7FB00BF02C3 /* Frameworks */,
 				4FAA63241ED4F7DD00BF02C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */,
+				4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +103,33 @@
 			path = VoiceCodeXCSourceEditorExtension;
 			sourceTree = "<group>";
 		};
+		4FAA63381ED4F7FB00BF02C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FAA633B1ED4F7FB00BF02C3 /* VoiceCode */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */,
+				4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */,
+				4FAA63421ED4F7FB00BF02C3 /* Info.plist */,
+				4FAA633C1ED4F7FB00BF02C3 /* Supporting Files */,
+			);
+			path = VoiceCode;
+			sourceTree = "<group>";
+		};
+		4FAA633C1ED4F7FB00BF02C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FAA633D1ED4F7FB00BF02C3 /* VoiceCode.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,15 +140,34 @@
 				4FAA631F1ED4F7DD00BF02C3 /* Sources */,
 				4FAA63201ED4F7DD00BF02C3 /* Frameworks */,
 				4FAA63211ED4F7DD00BF02C3 /* Resources */,
+				4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4FAA63441ED4F7FB00BF02C3 /* PBXTargetDependency */,
 			);
 			name = VoiceCodeXCSourceEditorExtension;
 			productName = VoiceCodeXCSourceEditorExtension;
 			productReference = 4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4FAA63361ED4F7FB00BF02C3 /* VoiceCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCode" */;
+			buildPhases = (
+				4FAA63331ED4F7FB00BF02C3 /* Sources */,
+				4FAA63341ED4F7FB00BF02C3 /* Frameworks */,
+				4FAA63351ED4F7FB00BF02C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoiceCode;
+			productName = VoiceCode;
+			productReference = 4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -89,6 +180,11 @@
 				ORGANIZATIONNAME = OliLarkin;
 				TargetAttributes = {
 					4FAA63221ED4F7DD00BF02C3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 686EDA2T8T;
+						ProvisioningStyle = Automatic;
+					};
+					4FAA63361ED4F7FB00BF02C3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 686EDA2T8T;
 						ProvisioningStyle = Automatic;
@@ -109,6 +205,7 @@
 			projectRoot = "";
 			targets = (
 				4FAA63221ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */,
+				4FAA63361ED4F7FB00BF02C3 /* VoiceCode */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +220,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FAA63351ED4F7FB00BF02C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -134,7 +238,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FAA63331ED4F7FB00BF02C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FAA633F1ED4F7FB00BF02C3 /* SourceEditorExtension.swift in Sources */,
+				4FAA63411ED4F7FB00BF02C3 /* SourceEditorCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FAA63441ED4F7FB00BF02C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FAA63361ED4F7FB00BF02C3 /* VoiceCode */;
+			targetProxy = 4FAA63431ED4F7FB00BF02C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4FAA632A1ED4F7DD00BF02C3 /* MainMenu.xib */ = {
@@ -241,7 +362,9 @@
 		4FAA63311ED4F7DD00BF02C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
 				INFOPLIST_FILE = VoiceCodeXCSourceEditorExtension/Info.plist;
@@ -255,13 +378,49 @@
 		4FAA63321ED4F7DD00BF02C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
 				INFOPLIST_FILE = VoiceCodeXCSourceEditorExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4FAA63471ED4F7FB00BF02C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VoiceCode/VoiceCode.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 686EDA2T8T;
+				INFOPLIST_FILE = VoiceCode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension.VoiceCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4FAA63481ED4F7FB00BF02C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VoiceCode/VoiceCode.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 686EDA2T8T;
+				INFOPLIST_FILE = VoiceCode/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension.VoiceCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -283,6 +442,14 @@
 			buildConfigurations = (
 				4FAA63311ED4F7DD00BF02C3 /* Debug */,
 				4FAA63321ED4F7DD00BF02C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FAA63471ED4F7FB00BF02C3 /* Debug */,
+				4FAA63481ED4F7FB00BF02C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
