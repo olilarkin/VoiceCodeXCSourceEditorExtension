@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FAA63361ED4F7FB00BF02C3"
-               BuildableName = "VoiceCode.appex"
-               BlueprintName = "VoiceCode"
+               BuildableName = "VCSourceEditorExtension.appex"
+               BlueprintName = "VCSourceEditorExtension"
                ReferencedContainer = "container:VoiceCodeXCSourceEditorExtension.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FAA63221ED4F7DD00BF02C3"
-               BuildableName = "VoiceCodeXCSourceEditorExtension.app"
-               BlueprintName = "VoiceCodeXCSourceEditorExtension"
+               BuildableName = "VCSourceEditorExtensionApp.app"
+               BlueprintName = "VCSourceEditorExtensionApp"
                ReferencedContainer = "container:VoiceCodeXCSourceEditorExtension.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FAA63361ED4F7FB00BF02C3"
-            BuildableName = "VoiceCode.appex"
-            BlueprintName = "VoiceCode"
+            BuildableName = "VCSourceEditorExtension.appex"
+            BlueprintName = "VCSourceEditorExtension"
             ReferencedContainer = "container:VoiceCodeXCSourceEditorExtension.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,16 +67,20 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.dt.Xcode"
+         RemotePath = "/Applications/Xcode.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FAA63221ED4F7DD00BF02C3"
-            BuildableName = "VoiceCodeXCSourceEditorExtension.app"
-            BlueprintName = "VoiceCodeXCSourceEditorExtension"
+            BuildableName = "VCSourceEditorExtensionApp.app"
+            BlueprintName = "VCSourceEditorExtensionApp"
             ReferencedContainer = "container:VoiceCodeXCSourceEditorExtension.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -92,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FAA63221ED4F7DD00BF02C3"
-            BuildableName = "VoiceCodeXCSourceEditorExtension.app"
-            BlueprintName = "VoiceCodeXCSourceEditorExtension"
+            BuildableName = "VCSourceEditorExtensionApp.app"
+            BlueprintName = "VCSourceEditorExtensionApp"
             ReferencedContainer = "container:VoiceCodeXCSourceEditorExtension.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

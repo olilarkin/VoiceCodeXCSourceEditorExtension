@@ -7,16 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FAA63271ED4F7DD00BF02C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA63261ED4F7DD00BF02C3 /* AppDelegate.swift */; };
-		4FAA63291ED4F7DD00BF02C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAA63281ED4F7DD00BF02C3 /* Assets.xcassets */; };
-		4FAA632C1ED4F7DD00BF02C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAA632A1ED4F7DD00BF02C3 /* MainMenu.xib */; };
+		4F4D5D4B1ED5D87E00B6DAFC /* VCSourceEditorExtensionXPCService.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4F4D5D5E1ED5D99300B6DAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */; };
+		4F4D5D5F1ED5D99300B6DAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */; };
+		4F4D5D601ED5D99300B6DAFC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */; };
+		4F4D5D681ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D641ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift */; };
+		4F4D5D691ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D651ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift */; };
+		4F4D5D6F1ED5D9FA00B6DAFC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6B1ED5D9FA00B6DAFC /* main.swift */; };
+		4F4D5D701ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6C1ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift */; };
+		4F4D5D711ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */; };
 		4FAA633A1ED4F7FB00BF02C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */; };
-		4FAA633F1ED4F7FB00BF02C3 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */; };
-		4FAA63411ED4F7FB00BF02C3 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */; };
-		4FAA63451ED4F7FB00BF02C3 /* VoiceCode.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FAA63451ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FC1759C1ED5E119000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */; };
+		4FC1759D1ED5E1D6000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */; };
+		4FC175A91ED5EAF4000CE276 /* VCSourceEditorExtensionXPCService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4F4D5D491ED5D87E00B6DAFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F4D5D3F1ED5D87D00B6DAFC;
+			remoteInfo = VoiceCodeXPCService;
+		};
 		4FAA63431ED4F7FB00BF02C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
@@ -24,37 +38,79 @@
 			remoteGlobalIDString = 4FAA63361ED4F7FB00BF02C3;
 			remoteInfo = VoiceCode;
 		};
+		4FC1759A1ED5E0F8000CE276 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F4D5D3F1ED5D87D00B6DAFC;
+			remoteInfo = XPCService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4F4D5D4F1ED5D87E00B6DAFC /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices/@executable_path/../../../../../../../Frameworks";
+			dstSubfolderSpec = 16;
+			files = (
+				4F4D5D4B1ED5D87E00B6DAFC /* VCSourceEditorExtensionXPCService.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				4FAA63451ED4F7FB00BF02C3 /* VoiceCode.appex in Embed App Extensions */,
+				4FAA63451ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FC175A81ED5EAC5000CE276 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				4FC175A91ED5EAF4000CE276 /* VCSourceEditorExtensionXPCService.xpc in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceCodeXCSourceEditorExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FAA63261ED4F7DD00BF02C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4FAA63281ED4F7DD00BF02C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4FAA632B1ED4F7DD00BF02C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4FAA632D1ED4F7DD00BF02C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VoiceCode.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = VCSourceEditorExtensionXPCService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		4F4D5D5A1ED5D99300B6DAFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
+		4F4D5D5D1ED5D99300B6DAFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Info.plist; sourceTree = SOURCE_ROOT; };
+		4F4D5D631ED5D9D100B6DAFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SourceEditorExtension/Info.plist; sourceTree = SOURCE_ROOT; };
+		4F4D5D641ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeSourceEditorCommand.swift; path = SourceEditorExtension/VoiceCodeSourceEditorCommand.swift; sourceTree = SOURCE_ROOT; };
+		4F4D5D651ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeSourceEditorExtension.swift; path = SourceEditorExtension/VoiceCodeSourceEditorExtension.swift; sourceTree = SOURCE_ROOT; };
+		4F4D5D661ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = VoiceCodeSourceEditorExtension.entitlements; path = SourceEditorExtension/VoiceCodeSourceEditorExtension.entitlements; sourceTree = SOURCE_ROOT; };
+		4F4D5D6A1ED5D9FA00B6DAFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = XPCService/Info.plist; sourceTree = SOURCE_ROOT; };
+		4F4D5D6B1ED5D9FA00B6DAFC /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = XPCService/main.swift; sourceTree = SOURCE_ROOT; };
+		4F4D5D6C1ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeXPCService.swift; path = XPCService/VoiceCodeXPCService.swift; sourceTree = SOURCE_ROOT; };
+		4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeXPCServiceProtocol.swift; path = XPCService/VoiceCodeXPCServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
+		4FAA63231ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCSourceEditorExtensionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VCSourceEditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		4FAA633D1ED4F7FB00BF02C3 /* VoiceCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceCode.entitlements; sourceTree = "<group>"; };
-		4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
-		4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
-		4FAA63421ED4F7FB00BF02C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FC175A61ED5E6A9000CE276 /* VoiceCodeSourceEditorExtensionApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = VoiceCodeSourceEditorExtensionApp.entitlements; path = App/VoiceCodeSourceEditorExtensionApp.entitlements; sourceTree = SOURCE_ROOT; };
+		4FC175A71ED5E935000CE276 /* VoiceCodeXPCService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = VoiceCodeXPCService.entitlements; path = XPCService/VoiceCodeXPCService.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4F4D5D3D1ED5D87D00B6DAFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FAA63201ED4F7DD00BF02C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,11 +129,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F4D5D411ED5D87E00B6DAFC /* XPCService */ = {
+			isa = PBXGroup;
+			children = (
+				4F4D5D6A1ED5D9FA00B6DAFC /* Info.plist */,
+				4F4D5D6B1ED5D9FA00B6DAFC /* main.swift */,
+				4F4D5D6C1ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift */,
+				4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */,
+				4FC175A71ED5E935000CE276 /* VoiceCodeXPCService.entitlements */,
+			);
+			name = XPCService;
+			path = VoiceCodeXPCService;
+			sourceTree = "<group>";
+		};
 		4FAA631A1ED4F7DD00BF02C3 = {
 			isa = PBXGroup;
 			children = (
-				4FAA63251ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */,
-				4FAA633B1ED4F7FB00BF02C3 /* VoiceCode */,
+				4FAA63251ED4F7DD00BF02C3 /* App */,
+				4F4D5D411ED5D87E00B6DAFC /* XPCService */,
+				4FAA633B1ED4F7FB00BF02C3 /* SourceEditorExtension */,
 				4FAA63381ED4F7FB00BF02C3 /* Frameworks */,
 				4FAA63241ED4F7DD00BF02C3 /* Products */,
 			);
@@ -86,20 +156,23 @@
 		4FAA63241ED4F7DD00BF02C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */,
-				4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */,
+				4FAA63231ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp.app */,
+				4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */,
+				4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4FAA63251ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */ = {
+		4FAA63251ED4F7DD00BF02C3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4FAA63261ED4F7DD00BF02C3 /* AppDelegate.swift */,
-				4FAA63281ED4F7DD00BF02C3 /* Assets.xcassets */,
-				4FAA632A1ED4F7DD00BF02C3 /* MainMenu.xib */,
-				4FAA632D1ED4F7DD00BF02C3 /* Info.plist */,
+				4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */,
+				4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */,
+				4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */,
+				4FC175A61ED5E6A9000CE276 /* VoiceCodeSourceEditorExtensionApp.entitlements */,
+				4F4D5D5D1ED5D99300B6DAFC /* Info.plist */,
 			);
+			name = App;
 			path = VoiceCodeXCSourceEditorExtension;
 			sourceTree = "<group>";
 		};
@@ -111,62 +184,76 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4FAA633B1ED4F7FB00BF02C3 /* VoiceCode */ = {
+		4FAA633B1ED4F7FB00BF02C3 /* SourceEditorExtension */ = {
 			isa = PBXGroup;
 			children = (
-				4FAA633E1ED4F7FB00BF02C3 /* SourceEditorExtension.swift */,
-				4FAA63401ED4F7FB00BF02C3 /* SourceEditorCommand.swift */,
-				4FAA63421ED4F7FB00BF02C3 /* Info.plist */,
-				4FAA633C1ED4F7FB00BF02C3 /* Supporting Files */,
+				4F4D5D631ED5D9D100B6DAFC /* Info.plist */,
+				4F4D5D641ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift */,
+				4F4D5D651ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift */,
+				4F4D5D661ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.entitlements */,
 			);
+			name = SourceEditorExtension;
 			path = VoiceCode;
-			sourceTree = "<group>";
-		};
-		4FAA633C1ED4F7FB00BF02C3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4FAA633D1ED4F7FB00BF02C3 /* VoiceCode.entitlements */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4FAA63221ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */ = {
+		4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FAA63301ED4F7DD00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCodeXCSourceEditorExtension" */;
+			buildConfigurationList = 4F4D5D4C1ED5D87E00B6DAFC /* Build configuration list for PBXNativeTarget "VCSourceEditorExtensionXPCService" */;
+			buildPhases = (
+				4F4D5D3C1ED5D87D00B6DAFC /* Sources */,
+				4F4D5D3D1ED5D87D00B6DAFC /* Frameworks */,
+				4F4D5D3E1ED5D87D00B6DAFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VCSourceEditorExtensionXPCService;
+			productName = VoiceCodeXPCService;
+			productReference = 4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
+		4FAA63221ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FAA63301ED4F7DD00BF02C3 /* Build configuration list for PBXNativeTarget "VCSourceEditorExtensionApp" */;
 			buildPhases = (
 				4FAA631F1ED4F7DD00BF02C3 /* Sources */,
 				4FAA63201ED4F7DD00BF02C3 /* Frameworks */,
 				4FAA63211ED4F7DD00BF02C3 /* Resources */,
 				4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */,
+				4F4D5D4F1ED5D87E00B6DAFC /* Embed XPC Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4FAA63441ED4F7FB00BF02C3 /* PBXTargetDependency */,
+				4F4D5D4A1ED5D87E00B6DAFC /* PBXTargetDependency */,
 			);
-			name = VoiceCodeXCSourceEditorExtension;
+			name = VCSourceEditorExtensionApp;
 			productName = VoiceCodeXCSourceEditorExtension;
-			productReference = 4FAA63231ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension.app */;
+			productReference = 4FAA63231ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4FAA63361ED4F7FB00BF02C3 /* VoiceCode */ = {
+		4FAA63361ED4F7FB00BF02C3 /* VCSourceEditorExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCode" */;
+			buildConfigurationList = 4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VCSourceEditorExtension" */;
 			buildPhases = (
 				4FAA63331ED4F7FB00BF02C3 /* Sources */,
 				4FAA63341ED4F7FB00BF02C3 /* Frameworks */,
 				4FAA63351ED4F7FB00BF02C3 /* Resources */,
+				4FC175A81ED5EAC5000CE276 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4FC1759B1ED5E0F8000CE276 /* PBXTargetDependency */,
 			);
-			name = VoiceCode;
+			name = VCSourceEditorExtension;
 			productName = VoiceCode;
-			productReference = 4FAA63371ED4F7FB00BF02C3 /* VoiceCode.appex */;
+			productReference = 4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -179,14 +266,27 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = OliLarkin;
 				TargetAttributes = {
+					4F4D5D3F1ED5D87D00B6DAFC = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 686EDA2T8T;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
 					4FAA63221ED4F7DD00BF02C3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 686EDA2T8T;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					4FAA63361ED4F7FB00BF02C3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 686EDA2T8T;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,19 +304,27 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FAA63221ED4F7DD00BF02C3 /* VoiceCodeXCSourceEditorExtension */,
-				4FAA63361ED4F7FB00BF02C3 /* VoiceCode */,
+				4FAA63221ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp */,
+				4FAA63361ED4F7FB00BF02C3 /* VCSourceEditorExtension */,
+				4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4F4D5D3E1ED5D87D00B6DAFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FAA63211ED4F7DD00BF02C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FAA63291ED4F7DD00BF02C3 /* Assets.xcassets in Resources */,
-				4FAA632C1ED4F7DD00BF02C3 /* MainMenu.xib in Resources */,
+				4F4D5D5F1ED5D99300B6DAFC /* Assets.xcassets in Resources */,
+				4F4D5D601ED5D99300B6DAFC /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,11 +338,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4F4D5D3C1ED5D87D00B6DAFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F4D5D701ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift in Sources */,
+				4F4D5D6F1ED5D9FA00B6DAFC /* main.swift in Sources */,
+				4F4D5D711ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FAA631F1ED4F7DD00BF02C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FAA63271ED4F7DD00BF02C3 /* AppDelegate.swift in Sources */,
+				4F4D5D5E1ED5D99300B6DAFC /* AppDelegate.swift in Sources */,
+				4FC1759D1ED5E1D6000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,33 +361,80 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FAA633F1ED4F7FB00BF02C3 /* SourceEditorExtension.swift in Sources */,
-				4FAA63411ED4F7FB00BF02C3 /* SourceEditorCommand.swift in Sources */,
+				4FC1759C1ED5E119000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */,
+				4F4D5D691ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift in Sources */,
+				4F4D5D681ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4F4D5D4A1ED5D87E00B6DAFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */;
+			targetProxy = 4F4D5D491ED5D87E00B6DAFC /* PBXContainerItemProxy */;
+		};
 		4FAA63441ED4F7FB00BF02C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4FAA63361ED4F7FB00BF02C3 /* VoiceCode */;
+			target = 4FAA63361ED4F7FB00BF02C3 /* VCSourceEditorExtension */;
 			targetProxy = 4FAA63431ED4F7FB00BF02C3 /* PBXContainerItemProxy */;
+		};
+		4FC1759B1ED5E0F8000CE276 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */;
+			targetProxy = 4FC1759A1ED5E0F8000CE276 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4FAA632A1ED4F7DD00BF02C3 /* MainMenu.xib */ = {
+		4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4FAA632B1ED4F7DD00BF02C3 /* Base */,
+				4F4D5D5A1ED5D99300B6DAFC /* Base */,
 			);
 			name = MainMenu.xib;
+			path = ../App/Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4F4D5D4D1ED5D87E00B6DAFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = XPCService/VoiceCodeXPCService.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 686EDA2T8T;
+				INFOPLIST_FILE = "$(SRCROOT)/XPCService/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXPCService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4F4D5D4E1ED5D87E00B6DAFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = XPCService/VoiceCodeXPCService.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 686EDA2T8T;
+				INFOPLIST_FILE = "$(SRCROOT)/XPCService/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXPCService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		4FAA632E1ED4F7DD00BF02C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -364,13 +530,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = App/VoiceCodeSourceEditorExtensionApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				INFOPLIST_FILE = VoiceCodeXCSourceEditorExtension/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXCSourceEditorExtensionApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -380,12 +549,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = App/VoiceCodeSourceEditorExtensionApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				INFOPLIST_FILE = VoiceCodeXCSourceEditorExtension/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXCSourceEditorExtensionApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -394,16 +565,18 @@
 		4FAA63471ED4F7FB00BF02C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = VoiceCode/VoiceCode.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/VoiceCodeSourceEditorExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				INFOPLIST_FILE = VoiceCode/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SourceEditorExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension.VoiceCode;
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -411,14 +584,15 @@
 		4FAA63481ED4F7FB00BF02C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = VoiceCode/VoiceCode.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/VoiceCodeSourceEditorExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				INFOPLIST_FILE = VoiceCode/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SourceEditorExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.OliLarkin.VoiceCodeXCSourceEditorExtension.VoiceCode;
+				PRODUCT_BUNDLE_IDENTIFIER = Oliver.Larkin.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -428,6 +602,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4F4D5D4C1ED5D87E00B6DAFC /* Build configuration list for PBXNativeTarget "VCSourceEditorExtensionXPCService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F4D5D4D1ED5D87E00B6DAFC /* Debug */,
+				4F4D5D4E1ED5D87E00B6DAFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4FAA631E1ED4F7DD00BF02C3 /* Build configuration list for PBXProject "VoiceCodeXCSourceEditorExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -437,21 +620,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FAA63301ED4F7DD00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCodeXCSourceEditorExtension" */ = {
+		4FAA63301ED4F7DD00BF02C3 /* Build configuration list for PBXNativeTarget "VCSourceEditorExtensionApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FAA63311ED4F7DD00BF02C3 /* Debug */,
 				4FAA63321ED4F7DD00BF02C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VoiceCode" */ = {
+		4FAA63461ED4F7FB00BF02C3 /* Build configuration list for PBXNativeTarget "VCSourceEditorExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FAA63471ED4F7FB00BF02C3 /* Debug */,
 				4FAA63481ED4F7FB00BF02C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
