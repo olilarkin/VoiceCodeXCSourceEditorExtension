@@ -12,12 +12,12 @@ import XcodeKit
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   
   lazy var connection: NSXPCConnection = {
-    let connection = NSXPCConnection(serviceName: "Oliver.Larkin.VoiceCodeXPCService")
+    let connection = NSXPCConnection(serviceName: "com.ol.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension.VoiceCodeXPCService")
     connection.remoteObjectInterface = NSXPCInterface(with: VoiceCodeXPCServiceProtocol.self)
     connection.resume()
     return connection
   }()
-  
+
   deinit {
     connection.invalidate()
   }
