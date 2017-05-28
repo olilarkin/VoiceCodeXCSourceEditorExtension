@@ -1,10 +1,11 @@
 // VoiceCodeXPCService.swift
 import Foundation
+import XcodeKit
 
 @objc class VoiceCodeXPCService: NSObject, VoiceCodeXPCServiceProtocol {
   
-  func uppercase(_ string: String, withReply: (String) -> ()) {
-    withReply(string.uppercased())
+  func process(_ buffer: XCSourceTextBuffer, withReply: (XCSourceTextBuffer) -> ()) {
+    withReply(buffer)
   }
   
 }

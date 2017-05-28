@@ -1,6 +1,7 @@
 // VoiceCodeXPCServiceProtocol.swift
 import Foundation
+import XcodeKit
 
 @objc protocol VoiceCodeXPCServiceProtocol {
-  func uppercase(_ string: String, withReply: (String)->())
+  func process(_ buffer: XCSourceTextBuffer, withReply: (XCSourceTextBuffer)->())
 }

@@ -27,10 +27,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let handler: (Error) -> () = { error in
       print("remote proxy error: \(error)")
     }
-    
+
     let service = connection.remoteObjectProxyWithErrorHandler(handler) as! VoiceCodeXPCServiceProtocol
-    service.uppercase("lowercase") { (uppercased) in
-      print(uppercased)
+    service.process(invocation.buffer) { (returnedBuffer) in
+      //
+      print("hello world")
     }
     
     completionHandler(nil)
