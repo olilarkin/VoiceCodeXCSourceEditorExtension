@@ -30,7 +30,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let service = connection.remoteObjectProxyWithErrorHandler(handler) as! VoiceCodeXPCServiceProtocol
     
     service.get_latest_command() { (command) in
-
+      let buffer = invocation.buffer
+      NSLog(buffer.contentUTI)
       NSLog(command)
       //TODO: do something with the invocation buffer
       connection.invalidate()
