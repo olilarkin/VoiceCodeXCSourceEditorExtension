@@ -19,7 +19,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   }()
 
   deinit {
-    connection.invalidate()
   }
   
   func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void
@@ -31,6 +30,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let service = connection.remoteObjectProxyWithErrorHandler(handler) as! VoiceCodeXPCServiceProtocol
     service.uppercase("lowercase") { (uppercased) in
       print(uppercased)
+      connection.invalidate()
     }
     
     completionHandler(nil)
