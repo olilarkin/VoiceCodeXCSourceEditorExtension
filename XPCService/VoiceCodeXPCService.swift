@@ -1,5 +1,6 @@
 // VoiceCodeXPCService.swift
 import Foundation
+import Starscream
 
 @objc class VoiceCodeXPCService: NSObject, VoiceCodeXPCServiceProtocol {
   

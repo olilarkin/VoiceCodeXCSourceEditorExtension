@@ -37,6 +37,55 @@
 			remoteGlobalIDString = 4FAA63361ED4F7FB00BF02C3;
 			remoteInfo = VoiceCode;
 		};
+		4FB844561EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79E619D48B7F006071F7;
+			remoteInfo = "Starscream iOS";
+		};
+		4FB844581EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B3E79F119D48B7F006071F7;
+			remoteInfo = "Starscream iOSTests";
+		};
+		4FB8445A1EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9C3E35F19E48FF1009FC285;
+			remoteInfo = "Starscream OSX";
+		};
+		4FB8445C1EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9C3E36919E48FF1009FC285;
+			remoteInfo = "Starscream OSXTests";
+		};
+		4FB8445E1EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 091277971BD673A70003036D;
+			remoteInfo = "Starscream tvOS";
+		};
+		4FB844601EDC84A500F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 091277A01BD673A70003036D;
+			remoteInfo = "Starscream tvOSTests";
+		};
+		4FB844621EDC84BD00F99195 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9C3E35E19E48FF1009FC285;
+			remoteInfo = "Starscream OSX";
+		};
 		4FC1759A1ED5E0F8000CE276 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
@@ -87,6 +136,7 @@
 		4FAA63231ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCSourceEditorExtensionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VCSourceEditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = XPCService/Starscream/Starscream.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4FC175A61ED5E6A9000CE276 /* VoiceCodeSourceEditorExtensionApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = VoiceCodeSourceEditorExtensionApp.entitlements; path = App/VoiceCodeSourceEditorExtensionApp.entitlements; sourceTree = SOURCE_ROOT; };
 		4FC175A71ED5E935000CE276 /* VoiceCodeXPCService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = VoiceCodeXPCService.entitlements; path = XPCService/VoiceCodeXPCService.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -120,6 +170,7 @@
 		4F4D5D411ED5D87E00B6DAFC /* XPCService */ = {
 			isa = PBXGroup;
 			children = (
+				4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */,
 				4F4D5D6A1ED5D9FA00B6DAFC /* Info.plist */,
 				4F4D5D6B1ED5D9FA00B6DAFC /* main.swift */,
 				4F4D5D6C1ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift */,
@@ -184,6 +235,19 @@
 			path = VoiceCode;
 			sourceTree = "<group>";
 		};
+		4FB8444E1EDC84A500F99195 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FB844571EDC84A500F99195 /* Starscream.framework */,
+				4FB844591EDC84A500F99195 /* Starscream iOSTests.xctest */,
+				4FB8445B1EDC84A500F99195 /* Starscream.framework */,
+				4FB8445D1EDC84A500F99195 /* Starscream OSXTests.xctest */,
+				4FB8445F1EDC84A500F99195 /* Starscream.framework */,
+				4FB844611EDC84A500F99195 /* Starscream tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +262,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4FB844631EDC84BD00F99195 /* PBXTargetDependency */,
 			);
 			name = VCSourceEditorExtensionXPCService;
 			productName = VoiceCodeXPCService;
@@ -294,6 +359,12 @@
 			mainGroup = 4FAA631A1ED4F7DD00BF02C3;
 			productRefGroup = 4FAA63241ED4F7DD00BF02C3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4FB8444E1EDC84A500F99195 /* Products */;
+					ProjectRef = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4FAA63221ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp */,
@@ -302,6 +373,51 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4FB844571EDC84A500F99195 /* Starscream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Starscream.framework;
+			remoteRef = 4FB844561EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FB844591EDC84A500F99195 /* Starscream iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Starscream iOSTests.xctest";
+			remoteRef = 4FB844581EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FB8445B1EDC84A500F99195 /* Starscream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Starscream.framework;
+			remoteRef = 4FB8445A1EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FB8445D1EDC84A500F99195 /* Starscream OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Starscream OSXTests.xctest";
+			remoteRef = 4FB8445C1EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FB8445F1EDC84A500F99195 /* Starscream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Starscream.framework;
+			remoteRef = 4FB8445E1EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FB844611EDC84A500F99195 /* Starscream tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Starscream tvOSTests.xctest";
+			remoteRef = 4FB844601EDC84A500F99195 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4F4D5D3E1ED5D87D00B6DAFC /* Resources */ = {
@@ -372,6 +488,11 @@
 			target = 4FAA63361ED4F7FB00BF02C3 /* VCSourceEditorExtension */;
 			targetProxy = 4FAA63431ED4F7FB00BF02C3 /* PBXContainerItemProxy */;
 		};
+		4FB844631EDC84BD00F99195 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Starscream OSX";
+			targetProxy = 4FB844621EDC84BD00F99195 /* PBXContainerItemProxy */;
+		};
 		4FC1759B1ED5E0F8000CE276 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */;
@@ -400,7 +521,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Library/Frameworks,
+					"XPCService/Starscream/build/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/XPCService/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ol.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension.VoiceCodeXPCService;
@@ -419,7 +543,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 686EDA2T8T;
-				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Library/Frameworks,
+					"XPCService/Starscream/build/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/XPCService/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ol.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension.VoiceCodeXPCService;

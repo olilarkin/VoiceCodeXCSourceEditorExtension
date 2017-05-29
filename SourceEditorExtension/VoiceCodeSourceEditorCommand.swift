@@ -33,6 +33,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       let buffer = invocation.buffer
       NSLog(buffer.contentUTI)
       NSLog(command)
+      
       //TODO: do something with the invocation buffer
       connection.invalidate()
       completionHandler(nil)
