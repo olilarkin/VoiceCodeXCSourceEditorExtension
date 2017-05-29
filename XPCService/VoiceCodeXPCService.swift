@@ -3,8 +3,8 @@ import Foundation
 
 @objc class VoiceCodeXPCService: NSObject, VoiceCodeXPCServiceProtocol {
   
-  func uppercase(_ string: String, withReply: (String) -> ()) {
-    withReply(string.uppercased())
+  func get_latest_command(withReply: (String) -> ()) {
+    withReply("move-to-line-number")
   }
   
 }

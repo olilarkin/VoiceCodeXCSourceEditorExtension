@@ -2,5 +2,5 @@
 import Foundation
 
 @objc protocol VoiceCodeXPCServiceProtocol {
-  func uppercase(_ string: String, withReply: (String)->())
+  func get_latest_command(withReply: (String)->())
 }

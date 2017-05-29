@@ -24,16 +24,18 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void
   {
     let handler: (Error) -> () = { error in
-      print("remote proxy error: \(error)")
+      NSLog("remote proxy error: \(error)")
     }
     
     let service = connection.remoteObjectProxyWithErrorHandler(handler) as! VoiceCodeXPCServiceProtocol
-    service.uppercase("lowercase") { (uppercased) in
-      print(uppercased)
-      connection.invalidate()
-    }
     
-    completionHandler(nil)
+    service.get_latest_command() { (command) in
+
+      NSLog(command)
+      //TODO: do something with the invocation buffer
+      connection.invalidate()
+      completionHandler(nil)
+    }
   }
   
 }

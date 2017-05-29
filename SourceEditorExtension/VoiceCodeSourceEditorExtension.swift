@@ -12,7 +12,7 @@ import XcodeKit
 class SourceEditorExtension: NSObject, XCSourceEditorExtension {
   
   func extensionDidFinishLaunching() {
-    print("Extension launched...")
+    //print("Extension launched...")
   }
   
   /*
