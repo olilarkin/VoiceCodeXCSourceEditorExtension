@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F129E541EEAFA1C00719D7B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB8445B1EDC84A500F99195 /* Starscream.framework */; };
+		4F129E5B1EEAFC6700719D7B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB8445B1EDC84A500F99195 /* Starscream.framework */; };
+		4F129E5F1EEAFC7800719D7B /* Starscream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4FB8445B1EDC84A500F99195 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F4D5D5E1ED5D99300B6DAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */; };
 		4F4D5D5F1ED5D99300B6DAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */; };
 		4F4D5D601ED5D99300B6DAFC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */; };
@@ -23,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4F129E5C1EEAFC6C00719D7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB8444D1EDC84A500F99195 /* Starscream.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9C3E35E19E48FF1009FC285;
+			remoteInfo = "Starscream OSX";
+		};
 		4F4D5D491ED5D87E00B6DAFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FAA631B1ED4F7DD00BF02C3 /* Project object */;
@@ -96,6 +106,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4F129E591EEAFBE600719D7B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F129E5E1EEAFC6F00719D7B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F129E5F1EEAFC7800719D7B /* Starscream.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F129E541EEAFA1C00719D7B /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F129E5B1EEAFC6700719D7B /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +289,7 @@
 				4F4D5D3C1ED5D87D00B6DAFC /* Sources */,
 				4F4D5D3D1ED5D87D00B6DAFC /* Frameworks */,
 				4F4D5D3E1ED5D87D00B6DAFC /* Resources */,
+				4F129E591EEAFBE600719D7B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -277,10 +309,12 @@
 				4FAA63201ED4F7DD00BF02C3 /* Frameworks */,
 				4FAA63211ED4F7DD00BF02C3 /* Resources */,
 				4FAA63491ED4F7FB00BF02C3 /* Embed App Extensions */,
+				4F129E5E1EEAFC6F00719D7B /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4F129E5D1EEAFC6C00719D7B /* PBXTargetDependency */,
 				4FAA63441ED4F7FB00BF02C3 /* PBXTargetDependency */,
 				4F4D5D4A1ED5D87E00B6DAFC /* PBXTargetDependency */,
 			);
@@ -323,6 +357,11 @@
 						DevelopmentTeam = 686EDA2T8T;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					4FAA63221ED4F7DD00BF02C3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -478,6 +517,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4F129E5D1EEAFC6C00719D7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Starscream OSX";
+			targetProxy = 4F129E5C1EEAFC6C00719D7B /* PBXContainerItemProxy */;
+		};
 		4F4D5D4A1ED5D87E00B6DAFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4F4D5D3F1ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService */;
