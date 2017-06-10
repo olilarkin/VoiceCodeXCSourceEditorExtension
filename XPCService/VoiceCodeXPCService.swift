@@ -6,10 +6,13 @@ import Starscream
 
   var socket: WebSocket
   var messageReceived: String
+  var failedToConnect: Bool
+  let noMessageStr = "{\"id\": \"no message\"}"
   
   override init() {
     socket = WebSocket(url: URL(string: "ws://localhost:8081/")!)
-    messageReceived = ""
+    messageReceived = noMessageStr
+    failedToConnect = false
     super.init()
     socket.delegate = self
     socket.connect()
@@ -17,30 +20,34 @@ import Starscream
   
   func getLatestCommand(withReply: (String) -> ()) {
 
-    while(!socket.isConnected) {
+    //we need to handle this better here - it will block until the connection is made, if it can't make the connection
+    while(!socket.isConnected && !failedToConnect) {
       // NSLog("connecting")
     }
     
-    while(messageReceived == "") {
+    while(messageReceived == noMessageStr && !failedToConnect) {
       // NSLog("waiting for message")
     }
     
     withReply(messageReceived)
     
-    messageReceived = ""
+    messageReceived = noMessageStr
+    failedToConnect = false
   }
   
   func websocketDidConnect(socket: WebSocket) {
-    NSLog("websocket is connected")
+    NSLog("Websocket is connected")
     //socket.write(string: "getCommand")
   }
   
   func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
     if let e = error {
-      NSLog("websocket is disconnected: \(e.localizedDescription)")
+      NSLog("Websocket is disconnected: \(e.localizedDescription)")
     } else {
-      NSLog("websocket disconnected")
+      NSLog("Websocket disconnected")
     }
+    
+    failedToConnect = true;
   }
   
   func websocketDidReceiveMessage(socket: WebSocket, text: String) {

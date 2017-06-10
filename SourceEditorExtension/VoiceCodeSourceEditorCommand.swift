@@ -95,7 +95,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     service.getLatestCommand() { (command) in
       //NSLog(buffer.contentUTI)
-      NSLog(command)
+      NSLog("Command received: " + command)
       
       do {
         let json = try JSON(data: command.data(using: .utf8)!)
@@ -116,9 +116,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let line = clampLineNumber(lineNumber: json["line"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
 
     switch(json["id"].stringValue) {
-      
+    case "no message":
+      NSLog("Could not connect to VoiceCode websocket")
+      break
     case "initial-state":
-      NSLog("initial state - not handled")
+      NSLog("Initial state - not handled")
       break
       
     // MARK: -
