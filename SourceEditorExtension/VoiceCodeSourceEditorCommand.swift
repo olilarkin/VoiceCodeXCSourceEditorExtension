@@ -170,7 +170,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             currentLine.insert(contentsOf: textToInsert.characters, at: insertIndex)
             buffer.lines.replaceObject(at: range.start.line, with: currentLine)
           }
-          break
+          break
 //        case "editor:toggle-comments":
 //          break
 //        case "editor:insert-code-template":
