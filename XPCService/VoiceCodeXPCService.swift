@@ -32,7 +32,7 @@ import Starscream
   
   func websocketDidConnect(socket: WebSocket) {
     NSLog("websocket is connected")
-    socket.write(string: "getCommand")
+    //socket.write(string: "getCommand")
   }
   
   func websocketDidDisconnect(socket: WebSocket, error: NSError?) {

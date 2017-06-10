@@ -1,3 +1,6 @@
 [submodule "XPCService/Starscream"]
 	path = XPCService/Starscream
 	url = https://github.com/daltoniam/Starscream
+[submodule "SourceEditorExtension/SwiftyJSON"]
+	path = SourceEditorExtension/SwiftyJSON
+	url = https://github.com/SwiftyJSON/SwiftyJSON.git
