@@ -2,5 +2,5 @@
 import Foundation
 
 @objc protocol VoiceCodeXPCServiceProtocol {
-  func get_latest_command(withReply: (String)->())
+  func getLatestCommand(withReply: (String)->())
 }

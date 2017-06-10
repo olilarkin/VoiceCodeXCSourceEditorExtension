@@ -15,7 +15,7 @@ import Starscream
     socket.connect()
   }
   
-  func get_latest_command(withReply: (String) -> ()) {
+  func getLatestCommand(withReply: (String) -> ()) {
 
     while(!socket.isConnected) {
       // NSLog("connecting")
