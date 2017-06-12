@@ -18,6 +18,10 @@ import Starscream
     socket.connect()
   }
   
+  func sendMessage(message: String) {
+    socket.write(string: message)
+  }
+  
   func getLatestCommand(withReply: (String) -> ()) {
 
     //we need to handle this better here - it will block until the connection is made, if it can't make the connection

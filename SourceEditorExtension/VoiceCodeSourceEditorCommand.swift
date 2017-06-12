@@ -85,6 +85,41 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     return newRange
   }
   
+  func getSelectedText(currentSelectionRange: XCSourceTextRange) -> String {
+    var selectedText = ""
+    
+    if(isInsertionPoint(range: currentSelectionRange)) {
+      return selectedText
+    }
+    
+    //all on same line
+    if(currentSelectionRange.start.line == currentSelectionRange.end.line) {
+      let lineStr = buffer.lines[currentSelectionRange.start.line] as! String
+      let startIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.start.column)
+      let endIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.end.column)
+      let range = startIndex..<endIndex
+      selectedText.append(lineStr.substring(with:range))
+    }
+    else {
+      for index in currentSelectionRange.start.line...currentSelectionRange.end.line {
+        let lineStr = buffer.lines[index] as! String
+        if index == currentSelectionRange.start.line {
+          let startIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.start.column)
+          selectedText.append(lineStr.substring(from: startIndex))
+        }
+        else if index == currentSelectionRange.end.line{
+          let endIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.end.column)
+          selectedText.append(lineStr.substring(to: endIndex))
+        }
+        else{
+          selectedText.append(lineStr)
+        }
+      }
+    }
+    
+    return selectedText
+  }
+  
   func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void
   {
     let handler: (Error) -> () = { error in
@@ -100,7 +135,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       do {
         let json = try JSON(data: command.data(using: .utf8)!)
 
-        try parseJSON(buffer: invocation.buffer, json: json)
+        try parseJSON(buffer: invocation.buffer, json: json, service: service)
       }
       catch {
         NSLog("error parsing json")
@@ -111,7 +146,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
   }
   
-  func parseJSON(buffer: XCSourceTextBuffer, json : JSON) throws {
+  func parseJSON(buffer: XCSourceTextBuffer, json : JSON, service: VoiceCodeXPCServiceProtocol) throws {
     let nLinesInBuffer = buffer.lines.count
     let line = clampLineNumber(lineNumber: json["line"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
 
@@ -124,20 +159,33 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       break
       
     // MARK: -
+    // MARK: OS overrides
+    case "os:get-selected-text":
+      let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
+      
+      let message: JSON = [
+        "id": "setSelectedText",
+        "text": getSelectedText(currentSelectionRange)
+      ]
+      
+      service.sendMessage(message: message.rawString()!)
+      break
+    // MARK: -
     // MARK: Editor overrides
     case "editor:move-to-line-number":
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer)
+      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
     case "editor:move-to-line-number-and-way-right":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  lineLength - 1, endColumn:  lineLength - 1, numberOfColumnsInLine: lineLength)
-      // TODO:  tell xcode to navigate to selection in case selection was offscreen
+      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
     case "editor:move-to-line-number-and-way-left":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  0, endColumn:  0, numberOfColumnsInLine: lineLength)
-      // TODO:  tell xcode to navigate to selection in case selection was offscreen
+      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
     case "editor:insert-under-line-number":
       buffer.lines.insert("", at: line)
@@ -145,8 +193,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     case "editor:select-line-number":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      
-      // TODO:  tell xcode to navigate to selection in case selection was offscreen
+      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
       //        case "editor:expand-selection-to-scope":
       //          break
@@ -157,8 +204,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       let lineLength = getLineLength(lineNumber: lastLine, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       
       buffer.selections[0] = makeRange(startLine: line, endLine: lastLine, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      
-      // TODO:  tell xcode to navigate to selection in case selection was offscreen
+      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
     case "editor:extend-selection-to-line-number":
       let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
@@ -186,28 +232,32 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       
       // MARK: -
       // MARK: Selection overrides
-      //        case "selection:previous-occurrence":
-      //          break
-      //        case "selection:next-occurrence":
-      //          break
-      //        case "selection:extend-to-next-occurrence":
-      //          break
-      //        case "selection:extend-to-previous-occurrence":
-      //          break
-      //        case "selection:previous-selection-occurrence":
-      //          break
-      //        case "selection:next-selection-occurrence":
-      //          break
-      //        case "selection:range-upward":
-      //          break
-      //        case "selection:range-downward":
-      //          break
-      //        case "selection:range-on-current-line":
-      //          break
-      //        case "selection:previous-word-by-surrounding-characters":
-      //          break
-      //        case "selection:next-word-by-surrounding-characters":
-    //          break
+        case "selection:previous-occurrence":
+          let range = buffer.selections[0] as! XCSourceTextRange
+          let selectedText = getSelectedText(currentSelectionRange: range)
+          
+          
+          break
+        case "selection:next-occurrence":
+          break
+        case "selection:extend-to-next-occurrence":
+          break
+        case "selection:extend-to-previous-occurrence":
+          break
+        case "selection:previous-selection-occurrence":
+          break
+        case "selection:next-selection-occurrence":
+          break
+        case "selection:range-upward":
+          break
+        case "selection:range-downward":
+          break
+        case "selection:range-on-current-line":
+          break
+        case "selection:previous-word-by-surrounding-characters":
+          break
+        case "selection:next-word-by-surrounding-characters":
+          break
     default:
       NSLog("not handled")
     }
