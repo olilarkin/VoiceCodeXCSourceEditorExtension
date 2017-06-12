@@ -195,10 +195,12 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
       service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
       break
-      //        case "editor:expand-selection-to-scope":
-      //          break
-      //        case "editor:click-expand-selection-to-scope":
-    //          break
+    case "editor:expand-selection-to-scope":
+      //MARK: TODO: editor:expand-selection-to-scope
+      break
+    case "editor:click-expand-selection-to-scope":
+      //MARK: TODO: editor:click-selection-to-scope
+      break
     case "editor:select-line-number-range":
       let lastLine = clampLineNumber(lineNumber: json["lastline"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
       let lineLength = getLineLength(lineNumber: lastLine, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
@@ -223,40 +225,49 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         buffer.lines.replaceObject(at: range.start.line, with: currentLine)
       }
       break
-      //        case "editor:toggle-comments":
-      //          break
-      //        case "editor:insert-code-template":
-      //          break
-      //        case "editor:complete-code-template":
-      //          break
-      
+//        case "editor:toggle-comments":
+//          break
+//        case "editor:insert-code-template":
+//          break
+//        case "editor:complete-code-template":
+//          break
       // MARK: -
       // MARK: Selection overrides
         case "selection:previous-occurrence":
-          let range = buffer.selections[0] as! XCSourceTextRange
-          let selectedText = getSelectedText(selectionRange: range, buffer: buffer)
-          
-          
+          //MARK: TODO: selection:previous-occurrence
+
           break
         case "selection:next-occurrence":
+          //MARK: TODO: selection:next-occurrence
+
           break
         case "selection:extend-to-next-occurrence":
+          //MARK: TODO: selection:extend-to-next-occurrence
+
           break
         case "selection:extend-to-previous-occurrence":
+          //MARK: TODO: selection:extend-to-previous-occurrence
+
           break
-        case "selection:previous-selection-occurrence":
-          break
-        case "selection:next-selection-occurrence":
-          break
-        case "selection:range-upward":
-          break
-        case "selection:range-downward":
-          break
+//        case "selection:previous-selection-occurrence":
+//          break
+//        case "selection:next-selection-occurrence":
+//          break
+//        case "selection:range-upward":
+//          break
+//        case "selection:range-downward":
+//          break
         case "selection:range-on-current-line":
+          //MARK: TODO: selection:range-on-current-line
+
           break
         case "selection:previous-word-by-surrounding-characters":
+          //MARK: TODO: selection:previous-word-by-surrounding-characters
+
           break
         case "selection:next-word-by-surrounding-characters":
+          //MARK: TODO: selection:next-word-by-surrounding-characters
+
           break
     default:
       NSLog("not handled")
