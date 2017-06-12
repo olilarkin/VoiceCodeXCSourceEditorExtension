@@ -12,6 +12,10 @@ import SwiftyJSON
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   
+  let jumpToSelectionMessage: JSON = [
+    "id": "jumpToSelection"
+  ]
+  
   lazy var connection: NSXPCConnection = {
     let connection = NSXPCConnection(serviceName: "com.ol.VoiceCodeXCSourceEditorExtensionApp.VoiceCodeSourceEditorExtension.VoiceCodeXPCService")
     connection.remoteObjectInterface = NSXPCInterface(with: VoiceCodeXPCServiceProtocol.self)
@@ -174,18 +178,18 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     // MARK: Editor overrides
     case "editor:move-to-line-number":
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer)
-      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
+      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
       break
     case "editor:move-to-line-number-and-way-right":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  lineLength - 1, endColumn:  lineLength - 1, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
+      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
       break
     case "editor:move-to-line-number-and-way-left":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  0, endColumn:  0, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
+      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
       break
     case "editor:insert-under-line-number":
       buffer.lines.insert("", at: line)
@@ -193,7 +197,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     case "editor:select-line-number":
       let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
+      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
       break
     case "editor:expand-selection-to-scope":
       //MARK: TODO: editor:expand-selection-to-scope
@@ -206,7 +210,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       let lineLength = getLineLength(lineNumber: lastLine, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
       
       buffer.selections[0] = makeRange(startLine: line, endLine: lastLine, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: "{\"id\": \"jumpToSelection\"}")
+      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
       break
     case "editor:extend-selection-to-line-number":
       let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
