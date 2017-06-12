@@ -85,30 +85,30 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     return newRange
   }
   
-  func getSelectedText(currentSelectionRange: XCSourceTextRange) -> String {
+  func getSelectedText(selectionRange: XCSourceTextRange, buffer: XCSourceTextBuffer) -> String {
     var selectedText = ""
     
-    if(isInsertionPoint(range: currentSelectionRange)) {
+    if(isInsertionPoint(range: selectionRange)) {
       return selectedText
     }
     
     //all on same line
-    if(currentSelectionRange.start.line == currentSelectionRange.end.line) {
-      let lineStr = buffer.lines[currentSelectionRange.start.line] as! String
-      let startIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.start.column)
-      let endIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.end.column)
+    if(selectionRange.start.line == selectionRange.end.line) {
+      let lineStr = buffer.lines[selectionRange.start.line] as! String
+      let startIndex = lineStr.index(lineStr.startIndex, offsetBy: selectionRange.start.column)
+      let endIndex = lineStr.index(lineStr.startIndex, offsetBy: selectionRange.end.column)
       let range = startIndex..<endIndex
       selectedText.append(lineStr.substring(with:range))
     }
     else {
-      for index in currentSelectionRange.start.line...currentSelectionRange.end.line {
+      for index in selectionRange.start.line...selectionRange.end.line {
         let lineStr = buffer.lines[index] as! String
-        if index == currentSelectionRange.start.line {
-          let startIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.start.column)
+        if index == selectionRange.start.line {
+          let startIndex = lineStr.index(lineStr.startIndex, offsetBy: selectionRange.start.column)
           selectedText.append(lineStr.substring(from: startIndex))
         }
-        else if index == currentSelectionRange.end.line{
-          let endIndex = lineStr.index(lineStr.startIndex, offsetBy: currentSelectionRange.end.column)
+        else if index == selectionRange.end.line{
+          let endIndex = lineStr.index(lineStr.startIndex, offsetBy: selectionRange.end.column)
           selectedText.append(lineStr.substring(to: endIndex))
         }
         else{
@@ -165,7 +165,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       
       let message: JSON = [
         "id": "setSelectedText",
-        "text": getSelectedText(currentSelectionRange)
+        "text": getSelectedText(selectionRange: currentSelectionRange, buffer: buffer)
       ]
       
       service.sendMessage(message: message.rawString()!)
@@ -234,7 +234,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       // MARK: Selection overrides
         case "selection:previous-occurrence":
           let range = buffer.selections[0] as! XCSourceTextRange
-          let selectedText = getSelectedText(currentSelectionRange: range)
+          let selectedText = getSelectedText(selectionRange: range, buffer: buffer)
           
           
           break
