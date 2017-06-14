@@ -219,13 +219,13 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       
       break
     case "editor:insert-from-line-number":
-      //TODO: this is not quite working
       let range = buffer.selections[0] as! XCSourceTextRange
       if isInsertionPoint(range: range) {
         var currentLine = buffer.lines[range.start.line] as! String
-        let textToInsert = buffer.lines[line] as! String //TODO: if line is out of range nothing should happen here
+        var textToInsert = buffer.lines[line] as! String //TODO: if line is out of range nothing should happen here
         let insertIndex = currentLine.index(currentLine.startIndex, offsetBy: range.start.column)
         currentLine.insert(contentsOf: textToInsert.characters, at: insertIndex)
+        currentLine.remove(at: currentLine.endIndex) //TODO: check thisworks...delete new line
         buffer.lines.replaceObject(at: range.start.line, with: currentLine)
       }
       break
