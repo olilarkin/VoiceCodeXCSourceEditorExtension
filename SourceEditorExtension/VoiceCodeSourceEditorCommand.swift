@@ -44,6 +44,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     case invalidLineNumber
   }
   
+  //MARK: TODO: for some operations an out of bounds line number should not be clamped
   func clampLineNumber(lineNumber: Int, nLinesInBuffer: Int) -> Int {
     if(lineNumber < 0) {
       return 0
@@ -223,10 +224,10 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       let range = buffer.selections[0] as! XCSourceTextRange
       if isInsertionPoint(range: range) {
         var currentLine = buffer.lines[range.start.line] as! String
-        var textToInsert = buffer.lines[line] as! String //TODO: if line is out of range nothing should happen here
+        var textToInsert = buffer.lines[line] as! String //MARK: TODO: if line is out of range nothing should happen here
         let insertIndex = currentLine.index(currentLine.startIndex, offsetBy: range.start.column)
         currentLine.insert(contentsOf: textToInsert.characters, at: insertIndex)
-        currentLine.remove(at: currentLine.endIndex) //TODO: check thisworks...delete new line
+        currentLine.remove(at: currentLine.index(currentLine.endIndex, offsetBy: -1))
         buffer.lines.replaceObject(at: range.start.line, with: currentLine)
       }
       break
