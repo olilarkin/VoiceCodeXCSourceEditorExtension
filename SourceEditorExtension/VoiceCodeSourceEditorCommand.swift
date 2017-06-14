@@ -24,6 +24,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   }()
 
   deinit {
+    connection.invalidate()
   }
   
   func isInsertionPoint(range: XCSourceTextRange) -> Bool{
