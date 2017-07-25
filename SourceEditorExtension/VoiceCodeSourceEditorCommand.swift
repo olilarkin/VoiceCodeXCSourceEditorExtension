@@ -63,13 +63,14 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
   }
 
   func makeRange(startLine: Int, endLine: Int, nLinesInBuffer: Int, startColumn: Int = 0, endColumn: Int = 0, numberOfColumnsInLine: Int = 0) -> XCSourceTextRange {
+    //MARK: TODO:  what am I doing with nLinesInBuffer?
     let newRange = XCSourceTextRange()
 
     if(startColumn < 0) {
       newRange.start.column = 0
     }
     else if(startColumn > numberOfColumnsInLine) {
-      newRange.start.column = numberOfColumnsInLine
+      newRange.start.column = numberOfColumnsInLine - 1
     }
     else {
       newRange.start.column = startColumn
@@ -79,7 +80,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       newRange.end.column = 0
     }
     else if(endColumn > numberOfColumnsInLine) {
-      newRange.end.column = numberOfColumnsInLine
+      newRange.end.column = numberOfColumnsInLine - 1
     }
     else {
       newRange.end.column = endColumn
@@ -157,126 +158,148 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let line = clampLineNumber(lineNumber: json["line"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
 
     switch(json["id"].stringValue) {
-    case "no message":
-      NSLog("Could not connect to VoiceCode websocket")
-      break
-    case "initial-state":
-      NSLog("Initial state - not handled")
-      break
-      
-    // MARK: -
-    // MARK: OS overrides
-    case "os:get-selected-text":
-      let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
-      
-      let message: JSON = [
-        "id": "setSelectedText",
-        "text": getSelectedText(selectionRange: currentSelectionRange, buffer: buffer)
-      ]
-      
-      service.sendMessage(message: message.rawString()!)
-      break
-    // MARK: -
-    // MARK: Editor overrides
-    case "editor:move-to-line-number":
-      buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer)
-      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
-      break
-    case "editor:move-to-line-number-and-way-right":
-      let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
-      buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  lineLength - 1, endColumn:  lineLength - 1, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
-      break
-    case "editor:move-to-line-number-and-way-left":
-      let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
-      
-      buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  0, endColumn:  0, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
-      break
-    case "editor:insert-under-line-number":
-      buffer.lines.insert("", at: line)
-      break
-    case "editor:select-line-number":
-      let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
-      buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
-      break
-    case "editor:expand-selection-to-scope":
-      //MARK: TODO: editor:expand-selection-to-scope
-      break
-    case "editor:click-expand-selection-to-scope":
-      //MARK: TODO: editor:click-selection-to-scope
-      break
-    case "editor:select-line-number-range":
-      let lastLine = clampLineNumber(lineNumber: json["lastline"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
-      let lineLength = getLineLength(lineNumber: lastLine, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
-      
-      buffer.selections[0] = makeRange(startLine: line, endLine: lastLine, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      service.sendMessage(message: jumpToSelectionMessage.rawString()!)
-      break
-    case "editor:extend-selection-to-line-number":
-      let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
-      let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
-      buffer.selections[0] = makeRange(startLine: currentSelectionRange.start.line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
-      
-      break
-    case "editor:insert-from-line-number":
-      let range = buffer.selections[0] as! XCSourceTextRange
-      if isInsertionPoint(range: range) {
-        var currentLine = buffer.lines[range.start.line] as! String
-        var textToInsert = buffer.lines[line] as! String //MARK: TODO: if line is out of range nothing should happen here
-        let insertIndex = currentLine.index(currentLine.startIndex, offsetBy: range.start.column)
-        currentLine.insert(contentsOf: textToInsert.characters, at: insertIndex)
-        currentLine.remove(at: currentLine.index(currentLine.endIndex, offsetBy: -1))
-        buffer.lines.replaceObject(at: range.start.line, with: currentLine)
-      }
-      break
-//        case "editor:toggle-comments":
-//          break
-//        case "editor:insert-code-template":
-//          break
-//        case "editor:complete-code-template":
-//          break
+      case "no message":
+        NSLog("Could not connect to VoiceCode websocket")
+
+      case "initial-state":
+        NSLog("Initial state - not handled")
+
+        
       // MARK: -
-      // MARK: Selection overrides
-        case "selection:previous-occurrence":
-          //MARK: TODO: selection:previous-occurrence
+      // MARK: OS overrides
+      case "os:get-selected-text":
+        let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
+        
+        let message: JSON = [
+          "id": "setSelectedText",
+          "text": getSelectedText(selectionRange: currentSelectionRange, buffer: buffer)
+        ]
+        
+        service.sendMessage(message: message.rawString()!)
 
-          break
-        case "selection:next-occurrence":
-          //MARK: TODO: selection:next-occurrence
+      // MARK: -
+      // MARK: DELETE overrides
+//    case "delete:delete-lines":
+//MARK: TODO: case "delete:delete-lines":
+      
+      // MARK: -
+      // MARK: OBJECT overrides
+      case "object:duplicate":
+        let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
+        let numberOfLinesSelected = (currentSelectionRange.end.line - currentSelectionRange.start.line) + 1;
+        let insertionPoint = currentSelectionRange.end.line;
+        
+        var linesToInsert : [String] = []
+        for readLine in 0..<numberOfLinesSelected {
+          let currentLine = buffer.lines[currentSelectionRange.start.line + readLine] as! String
+          linesToInsert.append(currentLine)
+        }
+        
+        let indexes = IndexSet((currentSelectionRange.end.line + 1)...(currentSelectionRange.end.line+numberOfLinesSelected))
+        buffer.lines.insert(linesToInsert, at:indexes)
+        buffer.selections[0] = makeRange(startLine: insertionPoint + numberOfLinesSelected, endLine: insertionPoint + numberOfLinesSelected, nLinesInBuffer: nLinesInBuffer)
+      
+      // MARK: -
+      // MARK: EDITOR overrides
+      case "editor:move-to-line-number":
+        buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer)
+        service.sendMessage(message: jumpToSelectionMessage.rawString()!)
 
-          break
-        case "selection:extend-to-next-occurrence":
-          //MARK: TODO: selection:extend-to-next-occurrence
+      case "editor:move-to-line-number-and-way-right":
+        let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
+        buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  lineLength - 1, endColumn:  lineLength - 1, numberOfColumnsInLine: lineLength)
+        service.sendMessage(message: jumpToSelectionMessage.rawString()!)
 
-          break
-        case "selection:extend-to-previous-occurrence":
-          //MARK: TODO: selection:extend-to-previous-occurrence
+      case "editor:move-to-line-number-and-way-left":
+        let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
+        
+        buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn:  0, endColumn:  0, numberOfColumnsInLine: lineLength)
+        service.sendMessage(message: jumpToSelectionMessage.rawString()!)
 
-          break
-//        case "selection:previous-selection-occurrence":
-//          break
-//        case "selection:next-selection-occurrence":
-//          break
-//        case "selection:range-upward":
-//          break
-//        case "selection:range-downward":
-//          break
-        case "selection:range-on-current-line":
-          //MARK: TODO: selection:range-on-current-line
+      case "editor:insert-under-line-number":
+        buffer.lines.insert("", at: line)
 
-          break
-        case "selection:previous-word-by-surrounding-characters":
-          //MARK: TODO: selection:previous-word-by-surrounding-characters
+      case "editor:select-line-number":
+        let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
+        buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
+        service.sendMessage(message: jumpToSelectionMessage.rawString()!)
 
-          break
-        case "selection:next-word-by-surrounding-characters":
-          //MARK: TODO: selection:next-word-by-surrounding-characters
+  //    case "editor:expand-selection-to-scope":
+        //MARK: TODO: editor:expand-selection-to-scope
 
-          break
-    default:
-      NSLog("not handled")
+  //    case "editor:click-expand-selection-to-scope":
+        //MARK: TODO: editor:click-selection-to-scope
+
+      case "editor:select-line-number-range":
+        let lastLine = clampLineNumber(lineNumber: json["lastline"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
+        let lineLength = getLineLength(lineNumber: lastLine, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
+        
+        buffer.selections[0] = makeRange(startLine: line, endLine: lastLine, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
+        service.sendMessage(message: jumpToSelectionMessage.rawString()!)
+
+      case "editor:extend-selection-to-line-number":
+        let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
+        let lineLength = getLineLength(lineNumber: line, nLinesInBuffer: nLinesInBuffer, buffer: buffer)
+        buffer.selections[0] = makeRange(startLine: currentSelectionRange.start.line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
+        
+
+      case "editor:insert-from-line-number":
+        let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
+        if isInsertionPoint(range: currentSelectionRange) {
+          var currentLine = buffer.lines[currentSelectionRange.start.line] as! String
+          var textToInsert = buffer.lines[line] as! String //MARK: TODO: if line is out of range nothing should happen here
+          let insertIndex = currentLine.index(currentLine.startIndex, offsetBy: currentSelectionRange.start.column)
+          currentLine.insert(contentsOf: textToInsert.characters, at: insertIndex)
+          currentLine.remove(at: currentLine.index(currentLine.endIndex, offsetBy: -1))
+          buffer.lines.replaceObject(at: currentSelectionRange.start.line, with: currentLine)
+        }
+
+  //        case "editor:toggle-comments":
+  //    
+  //        case "editor:insert-code-template":
+  //    
+  //        case "editor:complete-code-template":
+  //    
+        // MARK: -
+        // MARK: Selection overrides
+  //        case "selection:previous-occurrence":
+            //MARK: TODO: selection:previous-occurrence
+
+      
+  //        case "selection:next-occurrence":
+            //MARK: TODO: selection:next-occurrence
+
+      
+  //        case "selection:extend-to-next-occurrence":
+            //MARK: TODO: selection:extend-to-next-occurrence
+
+      
+  //        case "selection:extend-to-previous-occurrence":
+            //MARK: TODO: selection:extend-to-previous-occurrence
+
+      
+  //        case "selection:previous-selection-occurrence":
+  //    
+  //        case "selection:next-selection-occurrence":
+  //    
+  //        case "selection:range-upward":
+  //    
+  //        case "selection:range-downward":
+  //    
+  //        case "selection:range-on-current-line":
+            //MARK: TODO: selection:range-on-current-line
+
+      
+  //        case "selection:previous-word-by-surrounding-characters":
+            //MARK: TODO: selection:previous-word-by-surrounding-characters
+
+      
+  //        case "selection:next-word-by-surrounding-characters":
+            //MARK: TODO: selection:next-word-by-surrounding-characters
+
+      
+      default:
+        NSLog("not handled")
     }
     
   }
