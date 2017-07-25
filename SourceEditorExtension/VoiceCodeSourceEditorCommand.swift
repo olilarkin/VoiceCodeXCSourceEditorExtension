@@ -136,7 +136,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let service = connection.remoteObjectProxyWithErrorHandler(handler) as! VoiceCodeXPCServiceProtocol
     
     service.getLatestCommand() { (command) in
-      //NSLog(buffer.contentUTI)
+
       NSLog("Command received: " + command)
       
       do {
@@ -165,8 +165,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         NSLog("Initial state - not handled")
 
         
-      // MARK: -
-      // MARK: OS overrides
+// MARK: -
+// MARK: OS overrides
       case "os:get-selected-text":
         let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
         
@@ -176,14 +176,13 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         ]
         
         service.sendMessage(message: message.rawString()!)
-
-      // MARK: -
-      // MARK: DELETE overrides
-//    case "delete:delete-lines":
-//MARK: TODO: case "delete:delete-lines":
+// MARK: -
+// MARK: DELETE overrides
+//      case "delete:delete-lines":
+// MARK: TODO: case "delete:delete-lines":
       
-      // MARK: -
-      // MARK: OBJECT overrides
+// MARK: -
+// MARK: OBJECT overrides
       case "object:duplicate":
         let currentSelectionRange = buffer.selections[0] as! XCSourceTextRange
         let numberOfLinesSelected = (currentSelectionRange.end.line - currentSelectionRange.start.line) + 1;
@@ -199,8 +198,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         buffer.lines.insert(linesToInsert, at:indexes)
         buffer.selections[0] = makeRange(startLine: insertionPoint + numberOfLinesSelected, endLine: insertionPoint + numberOfLinesSelected, nLinesInBuffer: nLinesInBuffer)
       
-      // MARK: -
-      // MARK: EDITOR overrides
+// MARK: -
+// MARK: EDITOR overrides
       case "editor:move-to-line-number":
         buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer)
         service.sendMessage(message: jumpToSelectionMessage.rawString()!)
@@ -224,11 +223,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         buffer.selections[0] = makeRange(startLine: line, endLine: line, nLinesInBuffer: nLinesInBuffer, startColumn: 0, endColumn: lineLength, numberOfColumnsInLine: lineLength)
         service.sendMessage(message: jumpToSelectionMessage.rawString()!)
 
-  //    case "editor:expand-selection-to-scope":
-        //MARK: TODO: editor:expand-selection-to-scope
+//    case "editor:expand-selection-to-scope":
+// MARK: TODO: editor:expand-selection-to-scope
 
-  //    case "editor:click-expand-selection-to-scope":
-        //MARK: TODO: editor:click-selection-to-scope
+//    case "editor:click-expand-selection-to-scope":
+// MARK: TODO: editor:click-selection-to-scope
 
       case "editor:select-line-number-range":
         let lastLine = clampLineNumber(lineNumber: json["lastline"].intValue - 1, nLinesInBuffer: nLinesInBuffer)
@@ -254,48 +253,48 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
           buffer.lines.replaceObject(at: currentSelectionRange.start.line, with: currentLine)
         }
 
-  //        case "editor:toggle-comments":
-  //    
-  //        case "editor:insert-code-template":
-  //    
-  //        case "editor:complete-code-template":
-  //    
-        // MARK: -
-        // MARK: Selection overrides
-  //        case "selection:previous-occurrence":
-            //MARK: TODO: selection:previous-occurrence
+//        case "editor:toggle-comments":
+//    
+//        case "editor:insert-code-template":
+//    
+//        case "editor:complete-code-template":
+//    
+// MARK: -
+// MARK: SELECTION overrides
+//        case "selection:previous-occurrence":
+// MARK: TODO: selection:previous-occurrence
 
-      
-  //        case "selection:next-occurrence":
-            //MARK: TODO: selection:next-occurrence
 
-      
-  //        case "selection:extend-to-next-occurrence":
-            //MARK: TODO: selection:extend-to-next-occurrence
+//        case "selection:next-occurrence":
+// MARK: TODO: selection:next-occurrence
 
-      
-  //        case "selection:extend-to-previous-occurrence":
-            //MARK: TODO: selection:extend-to-previous-occurrence
 
-      
-  //        case "selection:previous-selection-occurrence":
-  //    
-  //        case "selection:next-selection-occurrence":
-  //    
-  //        case "selection:range-upward":
-  //    
-  //        case "selection:range-downward":
-  //    
-  //        case "selection:range-on-current-line":
-            //MARK: TODO: selection:range-on-current-line
+//        case "selection:extend-to-next-occurrence":
+// MARK: TODO: selection:extend-to-next-occurrence
 
-      
-  //        case "selection:previous-word-by-surrounding-characters":
-            //MARK: TODO: selection:previous-word-by-surrounding-characters
 
-      
-  //        case "selection:next-word-by-surrounding-characters":
-            //MARK: TODO: selection:next-word-by-surrounding-characters
+//        case "selection:extend-to-previous-occurrence":
+// MARK: TODO: selection:extend-to-previous-occurrence
+
+
+//        case "selection:previous-selection-occurrence":
+//    
+//        case "selection:next-selection-occurrence":
+//    
+//        case "selection:range-upward":
+//    
+//        case "selection:range-downward":
+//    
+//        case "selection:range-on-current-line":
+// MARK: TODO: selection:range-on-current-line
+
+
+//        case "selection:previous-word-by-surrounding-characters":
+// MARK: TODO: selection:previous-word-by-surrounding-characters
+
+
+//        case "selection:next-word-by-surrounding-characters":
+// MARK: TODO: selection:next-word-by-surrounding-characters
 
       
       default:
