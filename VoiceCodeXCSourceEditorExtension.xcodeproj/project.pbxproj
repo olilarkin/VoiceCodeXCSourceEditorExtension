@@ -10,7 +10,6 @@
 		4F129E541EEAFA1C00719D7B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB8445B1EDC84A500F99195 /* Starscream.framework */; };
 		4F4D5D5E1ED5D99300B6DAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */; };
 		4F4D5D5F1ED5D99300B6DAFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */; };
-		4F4D5D601ED5D99300B6DAFC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */; };
 		4F4D5D681ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D641ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift */; };
 		4F4D5D691ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D651ED5D9D100B6DAFC /* VoiceCodeSourceEditorExtension.swift */; };
 		4F4D5D6F1ED5D9FA00B6DAFC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6B1ED5D9FA00B6DAFC /* main.swift */; };
@@ -18,6 +17,8 @@
 		4F4D5D711ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */; };
 		4F5A24EF1EEB5A9800EF8B8A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A24E41EEB5A6500EF8B8A /* SwiftyJSON.framework */; };
 		4F5A24F21EEB5ACA00EF8B8A /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F5A24E41EEB5A6500EF8B8A /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F7886AB1F2BBA5D00754C92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7886AA1F2BBA5D00754C92 /* ViewController.swift */; };
+		4FA6FC8A1F2BB625004791CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6FC881F2BB625004791CD /* Main.storyboard */; };
 		4FAA633A1ED4F7FB00BF02C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */; };
 		4FAA63451ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4FC1759C1ED5E119000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */; };
@@ -221,7 +222,6 @@
 		4F4D5D401ED5D87D00B6DAFC /* VCSourceEditorExtensionXPCService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = VCSourceEditorExtensionXPCService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = App/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		4F4D5D5A1ED5D99300B6DAFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
 		4F4D5D5D1ED5D99300B6DAFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Info.plist; sourceTree = SOURCE_ROOT; };
 		4F4D5D631ED5D9D100B6DAFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SourceEditorExtension/Info.plist; sourceTree = SOURCE_ROOT; };
 		4F4D5D641ED5D9D100B6DAFC /* VoiceCodeSourceEditorCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeSourceEditorCommand.swift; path = SourceEditorExtension/VoiceCodeSourceEditorCommand.swift; sourceTree = SOURCE_ROOT; };
@@ -232,6 +232,8 @@
 		4F4D5D6C1ED5D9FA00B6DAFC /* VoiceCodeXPCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeXPCService.swift; path = XPCService/VoiceCodeXPCService.swift; sourceTree = SOURCE_ROOT; };
 		4F4D5D6D1ED5D9FA00B6DAFC /* VoiceCodeXPCServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VoiceCodeXPCServiceProtocol.swift; path = XPCService/VoiceCodeXPCServiceProtocol.swift; sourceTree = SOURCE_ROOT; };
 		4F5A24CF1EEB5A6500EF8B8A /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SourceEditorExtension/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = SOURCE_ROOT; };
+		4F7886AA1F2BBA5D00754C92 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = App/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		4FA6FC891F2BB625004791CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = App/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		4FAA63231ED4F7DD00BF02C3 /* VCSourceEditorExtensionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCSourceEditorExtensionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAA63371ED4F7FB00BF02C3 /* VCSourceEditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VCSourceEditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAA63391ED4F7FB00BF02C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -321,8 +323,9 @@
 			isa = PBXGroup;
 			children = (
 				4F4D5D561ED5D99300B6DAFC /* AppDelegate.swift */,
+				4F7886AA1F2BBA5D00754C92 /* ViewController.swift */,
 				4F4D5D571ED5D99300B6DAFC /* Assets.xcassets */,
-				4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */,
+				4FA6FC881F2BB625004791CD /* Main.storyboard */,
 				4FC175A61ED5E6A9000CE276 /* VoiceCodeSourceEditorExtensionApp.entitlements */,
 				4F4D5D5D1ED5D99300B6DAFC /* Info.plist */,
 			);
@@ -610,8 +613,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA6FC8A1F2BB625004791CD /* Main.storyboard in Resources */,
 				4F4D5D5F1ED5D99300B6DAFC /* Assets.xcassets in Resources */,
-				4F4D5D601ED5D99300B6DAFC /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F7886AB1F2BBA5D00754C92 /* ViewController.swift in Sources */,
 				4F4D5D5E1ED5D99300B6DAFC /* AppDelegate.swift in Sources */,
 				4FC1759D1ED5E1D6000CE276 /* VoiceCodeXPCServiceProtocol.swift in Sources */,
 			);
@@ -690,13 +694,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4F4D5D591ED5D99300B6DAFC /* MainMenu.xib */ = {
+		4FA6FC881F2BB625004791CD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F4D5D5A1ED5D99300B6DAFC /* Base */,
+				4FA6FC891F2BB625004791CD /* Base */,
 			);
-			name = MainMenu.xib;
-			path = ../App/Base.lproj;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
